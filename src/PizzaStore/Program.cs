@@ -23,6 +23,12 @@ namespace PizzaStore
 
             // get the mapped instance of IPizzaMaker
             IPizzaMaker pizzaMaker = provider.GetService<IPizzaMaker>();
+
+            // order some pizza
+            Console.WriteLine("Ordering a Large Peperoni & Onion");
+            Console.WriteLine();
+            pizzaMaker.TakeOrder(Size.Large, new List<string> { "peperoni", "onion" });
+            Console.ReadLine();
         }
     }
 }
