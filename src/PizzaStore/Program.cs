@@ -15,7 +15,8 @@ namespace PizzaStore
             // Enable to app to read json setting files
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Path.GetFullPath(Directory.GetCurrentDirectory()))
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddEnvironmentVariables();
 
             var configuration = builder.Build();
 
@@ -36,7 +37,7 @@ namespace PizzaStore
             // get the mapped instance of IPizzaMaker
             IPizzaMaker pizzaMaker = provider.GetService<IPizzaMaker>();
 
-            var customer = Environment.GetEnvironmentVariable("customer");
+            var customer = configuration.GetValue<string>("customer");
 
             // order some pizza
             Console.WriteLine($"Ordering a Large Peperoni & Onion for: {customer}");
