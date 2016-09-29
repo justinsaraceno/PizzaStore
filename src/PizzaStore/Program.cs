@@ -16,7 +16,7 @@ namespace PizzaStore
             IServiceCollection services = new ServiceCollection();
 
             // map instances of IPizzaMaker to the concrete maker
-            services.AddSingleton<IPizzaMaker, PapaGinos>();
+            services.AddSingleton<IPizzaMaker, ZPizza>();
 
             // create a provider for the mapped services
             IServiceProvider provider = services.BuildServiceProvider();
