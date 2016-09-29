@@ -20,6 +20,9 @@ namespace PizzaStore
 
             // create a provider for the mapped services
             IServiceProvider provider = services.BuildServiceProvider();
+
+            // get the mapped instance of IPizzaMaker
+            IPizzaMaker pizzaMaker = provider.GetService<IPizzaMaker>();
         }
     }
 }
