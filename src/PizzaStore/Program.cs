@@ -36,7 +36,7 @@ namespace PizzaStore
             // get the mapped instance of IPizzaMaker
             IPizzaMaker pizzaMaker = provider.GetService<IPizzaMaker>();
 
-            var customer = configuration.GetValue<string>("customer");
+            var customer = Environment.GetEnvironmentVariable("customer");
 
             // order some pizza
             Console.WriteLine($"Ordering a Large Peperoni & Onion for: {customer}");
